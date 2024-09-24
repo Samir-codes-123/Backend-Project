@@ -5,7 +5,7 @@ import { app } from "./app.js";
 
 dotenv.config({
   //config in package.json
-  path: "./env",
+  path: "./.env",
 });
 connectDB() // returns promise
   .then(() => {

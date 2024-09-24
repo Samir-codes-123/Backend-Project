@@ -49,10 +49,10 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-userSchema.pre("save", function (next) {
+userSchema.pre("save", async function (next) {
   // dont use arrow it cannot access current context
   if (!this.isModified("password")) return next(); // only encypritng pass when pass is created or changed not for other fields
-  this.password = bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10);
   next(); //for next middleware or complete the opearation
 }); // middleware
 
