@@ -13,7 +13,9 @@ const subscriptionSchema = new Schema(
       ref: "User",
     },
   },
-
+  // making seperate entry in db rather than keeping subscriber in array as subscriber can be more than a million
+  //while finding subscriber count the doucment with the same channel not subscriber
+  // for finding whom the user has subcriber we find document with same subsscriber and take out channel list
   { timestamps: true }
 );
 
